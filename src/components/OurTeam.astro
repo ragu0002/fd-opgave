@@ -1,0 +1,14 @@
+---
+import employees from "@data/employees.json";
+console.log(employees);
+import DynamicImage from "@components/helpers/DynamicImage.astro"
+---
+
+{employees.map((employee) => (
+  <DynamicImage
+    imagePath={employee.img}
+    altText={employee.name}
+    width={200}
+    height={200}
+  />
+))}

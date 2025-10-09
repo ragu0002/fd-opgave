@@ -1,8 +1,12 @@
 /* Globale styles her */
+
+:root {
+  --content-width: 1200px;
+}
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: [full-start] 1fr [content-start] minmax(0, 1200px) [content-end] 1fr [full-end];
+  grid-template-columns: [full-start] 1fr [content-start] minmax(0, var(--content-width)) [content-end] 1fr [full-end];
   gap: 1rlh;
   align-items: start;
 }
