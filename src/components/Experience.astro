@@ -1,0 +1,87 @@
+---
+//@ts-nocheck
+import experience from "@data/experience.json";
+console.log(experience);
+---
+<section>
+<div>
+<h2>{experience.heading}</h2>
+<p>{experience.subheading}</p>
+</div>
+<div class="stats">
+     {
+    experience.stats.map((service) => (
+      <div class="stat_container">
+        <div class="stat" style={{ '--percent': `${service.value}` }}>
+        </div>
+             <p>{service.label}</p>
+      </div>
+    ))
+  }
+</div>
+</section>
+<style>
+  @layer components {
+
+section{
+    display: grid;
+    grid-template-columns: auto 2fr;
+  margin-top: 100px;
+   width: min( 100% - 1rem);
+}
+ .stats {
+    text-align: center;
+    grid-column: 2/ span 2;
+  display: flex;
+  
+  gap: 1rem;
+ 
+  justify-content: space-between;
+}
+
+.stat {
+    display: grid;
+       grid-column: subgrid;
+      
+  container: stat/ inline-size;
+  --actualPercent: calc(var(--percent)*1%);
+  --border-width: 5px;
+  aspect-ratio: 1;
+  width: 150px;
+  border-radius: calc(Infinity * 1px);
+  border: var(--border-width) solid transparent;
+  background:
+    conic-gradient(#fff 0 0) padding-box,
+    conic-gradient(red var(--actualPercent), black 0) border-box;
+  
+  counter-reset:c var(--percent);
+  
+  &::before,
+  &::after {
+    grid-area: 1 / 1;
+   
+  }
+  
+  &::after {
+   
+    content: counter(c, decimal-leading-zero)"%";
+    place-self:center;
+    font-size: 30cqw;
+  }
+  
+  &::before {
+    content: '';
+    aspect-ratio: 1;
+    border-radius: 99px;
+    width: 20px;
+    background: red;
+     offset-path:border-box;
+    offset-distance: var(--actualPercent);
+  offset-anchor: 50% calc(50%-var(--border-width)/2);
+  }
+}
+
+  }
+
+
+</style>
