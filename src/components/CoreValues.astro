@@ -1,0 +1,54 @@
+---
+//@ts-nocheck
+import coreValues from "@data/coreValues.json";
+console.log(coreValues);
+---
+
+<section>
+<div>
+<p>Growing with our clients</p>
+<h2>{coreValues.title}</h2>
+<p>{coreValues.subtitle}</p>
+<a href="">{coreValues.button.text}</a>
+</div>
+<ul>
+ {
+    coreValues.values.map((service) => (
+      <li>
+ <h3>{service.title}</h3>
+ <p>{service.description}</p>
+ <a href="">Read More</a>
+      </li>
+    ))
+  }
+
+
+
+</ul>
+</section>
+<style>
+     @layer components {
+        
+    
+    div{
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        h2, p{
+            grid-column: 1;
+        }
+        a{
+            grid-column: 3;
+        }
+    }
+        ul{
+      display: flex;
+      padding: 20px 0;
+       li {
+      list-style: none;
+
+      a{
+        text-decoration: none;
+      }
+    }
+    }}
+</style>
