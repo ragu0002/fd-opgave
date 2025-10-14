@@ -1,0 +1,51 @@
+---
+//@ts-nocheck
+import empLoyees from "@data/employees.json";
+console.log(empLoyees)
+---
+
+<section>
+    <h4>Our team</h4>
+    <h2>We champion the bold to achieve the extraordinary
+    </h2>
+    <p>Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and promotes mutual respect among all team members.
+</p>
+
+<ul>
+      {
+    empLoyees.slice(0, 3).map((data) => (
+      <li>
+        <figure>
+            <img src={data.img} alt={data.name}>
+            <p>{data.title}</p>
+            </figure>
+        <h2>{data.name}</h2>
+        <p>{data.description}</p>
+      </li>
+    ))
+  }
+</ul>
+</section>
+
+<style>
+      @layer components {
+ul{
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  list-style: none;
+  text-align: center;
+  figure{
+    display: grid;
+    >*{
+        grid-area: 1/1;
+    }
+    p{
+        display: grid;
+        align-items: end;
+      text-align: end;
+    }
+  }
+}
+       }
+</style>
