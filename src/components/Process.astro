@@ -1,0 +1,89 @@
+---
+//@ts-nocheck
+import Phone from "@icons/phone.svg";
+import Pin from "@icons/pin.svg";
+import Clock from "@icons/clock.svg";
+import { Image } from "astro:assets";
+
+import CEOImage from "@assets/images/ceo.png";
+---
+
+<section>
+    <div>
+    <div>
+    <h4>Process</h4>
+    <h2>Contact us. It´s easy!</h2>
+    <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
+</div>
+<ul>
+    <li>
+     <Phone/>
+        <div>
+            <p>Call Today</p>
+            <p>+1 800 100 900</p>
+        </div>
+    </li>
+     <li>
+        <Clock/>
+        <div>
+            <p>Monday To Friday</p>
+            <p>9AM - 5PM</p>
+        </div>
+    </li>
+     <li>
+        <Pin/>
+        <div>
+            <p>USA Office</p>
+            <p>195 Devonshire St Boston, MA 02110</p>
+        </div>
+    </li>
+</ul>
+</div>
+<div class="img_box">
+ <Image src={CEOImage} alt="CEO" />
+  <Image src={CEOImage} alt="CEO" />
+   <Image src={CEOImage} alt="CEO" />
+
+
+</div>
+</section>
+
+<style>
+      @layer components {
+
+section{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+ul{
+    li{
+        display: flex;
+    }
+}
+.img_box{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    :nth-child(1){
+        grid-column: 1/ span 1;
+        grid-row: 1/ span 2;
+    }
+     :nth-child(2){
+        grid-column: 2/ span 1;
+    }
+     :nth-child(3){
+        grid-column: 2/ span 1;
+        grid-row: 2/ span 1;
+    }
+}
+      .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+}
+  
+
+  }
+</style>
