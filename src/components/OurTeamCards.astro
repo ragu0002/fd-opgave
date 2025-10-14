@@ -1,0 +1,67 @@
+---
+//@ts-nocheck
+import empLoyees from "@data/employees.json";
+console.log(empLoyees)
+---
+
+<section>
+    <div>
+        <div>
+    <h2>Meet Our Great Team</h2>
+    <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
+</div>
+    <a href="">Join our team</a>
+    </div>
+<ul>
+      {
+    empLoyees.map((data) => (
+      <li>
+        <figure>
+            <img src={data.img} alt={data.name}>
+            <p>{data.title}</p>
+            </figure>
+        <h2>{data.name}</h2>
+        <p>{data.description}</p>
+      </li>
+    ))
+  }
+</ul>
+</section>
+
+<style>
+      @layer components {
+        
+        section{
+            >*{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+
+                a{
+                    display: grid;
+                    align-items: end;
+                    text-align: end;
+                }
+            }
+        }
+        
+        ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+  list-style: none;
+  text-align: center;
+  figure{
+    display: grid;
+    >*{
+        grid-area: 1/1;
+    }
+    p{
+        display: grid;
+        align-items: end;
+      text-align: end;
+    }
+  }
+}
+       }
+</style>
