@@ -8,10 +8,10 @@ console.log(servicesData);
 <ul>
   {
     servicesData.services.map((service) => (
-      <li>
+      <li class="card">
         <h4>{service.title}</h4>
         <p>{service.description}</p>
-        <a href="#0">{service.buttonText}</a>
+        <a href="#0" class="button">{service.buttonText}</a>
       </li>
     ))
   }
@@ -20,14 +20,29 @@ console.log(servicesData);
 <style>
   @layer components {
     ul{
+      margin-top: -8vw;
       display: flex;
+      gap: 20px;
        li {
       list-style: none;
+      
 
       a{
         text-decoration: none;
+         background-color:var(--color-primary-03) ;
       }
+  
     }
+     .card{
+         padding: var(--card-padding);
+  border: var(--card-border) var(--color-primary-03);
+  background-color: color-mix(in srgb, var(--color-primary-03), white 20%);
+ backdrop-filter: blur(16px);
+ >*{
+ color: var(--color-secondary-01);
+
+ }
+      }
     }
    
   }
