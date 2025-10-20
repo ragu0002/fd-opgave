@@ -1,7 +1,7 @@
 ---
 //@ts-nocheck
 ---
-<section>
+<section >
  <h2>AskExperts</h2>
  <ul>
     <li>
@@ -17,7 +17,7 @@
         <a href="/about">About</a>
       </li>
  </ul>
-<a href="">Login</a>
+<a href="" class="button">Login</a>
 </section>
 
 
@@ -26,14 +26,30 @@
 section{
     display: grid;
  grid-template-columns: auto  1fr auto;
+ margin-block: 20px;
+>*{color: var( --color-secondary-01);}
     ul{
         display: flex;
-        gap: 10px;
+        gap: 20px;
 justify-content: center;
+align-items: center;
 li{
     list-style: none;
+    >*{
+          color: var( --color-secondary-01);
+    text-decoration: none;
    
+    }
+  
 }
+    }
+    >:last-child{
+        display: flex;
+        background-color: var(--color-primary-01);
+        color: var(--color-primary-03);
+       
+        align-items: center;
+        justify-content: center;
     }
 }
      }
