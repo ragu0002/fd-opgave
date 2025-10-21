@@ -3,10 +3,23 @@
 import Layout from "@layouts/Layout.astro";
 import empLoyees from "@data/employees.json";
 console.log(empLoyees)
+
+export async function getStaticPaths() {
+    return empLoyees.map(employee => {
+        return {
+            params: {slug: employee.slug},
+            props: {employee}
+        }
+    })
+}
+
+const { employee } = Astro.props;
+
 ---
 
 <Layout>
 <section>
+    <h2>{employee.name}</h2>
     
 </section>
 

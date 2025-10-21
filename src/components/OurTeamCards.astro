@@ -16,12 +16,14 @@ console.log(empLoyees)
       {
     empLoyees.map((data) => (
       <li>
+        <a href=`/teamMember/${data.slug}`>
         <figure>
             <img src={data.img} alt={data.name}>
             <p>{data.title}</p>
             </figure>
         <h2>{data.name}</h2>
         <p>{data.description}</p>
+        </a>
       </li>
     ))
   }
