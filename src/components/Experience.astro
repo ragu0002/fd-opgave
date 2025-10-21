@@ -3,7 +3,8 @@
 import experience from "@data/experience.json";
 console.log(experience);
 ---
-<section>
+<section class="full-span">
+<div>
 <div>
   <h5>experience</h5>
 <h2>{experience.heading}</h2>
@@ -20,24 +21,35 @@ console.log(experience);
     ))
   }
 </div>
+</div>
 </section>
 <style>
   @layer components {
 
 section{
+   background-color: var(--color-primary-01);
+   padding-block: 10vh;
+  >*{
     display: grid;
     grid-template-columns: auto 2fr;
-  margin-top: 100px;
    width: min( 100% - 1rem);
+  gap: 90px;
+   }
+   p{
+    color: var(--color-primary-03);
+   }
 }
  .stats {
     text-align: center;
     grid-column: 2/ span 2;
   display: flex;
-  
   gap: 1rem;
- 
   justify-content: space-between;
+  >*{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .stat {
@@ -51,9 +63,10 @@ section{
   width: 150px;
   border-radius: calc(Infinity * 1px);
   border: var(--border-width) solid transparent;
+  background-color: var(--color-primary-01);
   background:
-    conic-gradient(#fff 0 0) padding-box,
-    conic-gradient(red var(--actualPercent), black 0) border-box;
+    conic-gradient(var(--color-primary-01) 0 0) padding-box,
+    conic-gradient(var(--color-secondary-02) var(--actualPercent), var(--color-primary-03-02) 0) border-box;
   
   counter-reset:c var(--percent);
   
@@ -75,7 +88,7 @@ section{
     aspect-ratio: 1;
     border-radius: 99px;
     width: 20px;
-    background: red;
+    background: var(--color-primary-03);
      offset-path:border-box;
     offset-distance: var(--actualPercent);
   offset-anchor: 50% calc(50%-var(--border-width)/2);

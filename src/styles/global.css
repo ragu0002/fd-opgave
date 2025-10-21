@@ -60,9 +60,9 @@ main {
   grid-template-columns: subgrid;
   > * {
     grid-column: content;
-  }
-  > * + * {
-    margin-block-start: var(--flow-space, 1em);
+    > * + * {
+      margin-block-start: var(--flow-space, 1em);
+    }
   }
 }
 .full-span {
