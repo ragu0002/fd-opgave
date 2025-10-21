@@ -1,25 +1,43 @@
 ---
 //@ts-nocheck
+const {color, width} = Astro.props;
 import coreValues from "@data/coreValues.json";
+import RightArrow from "@icons/arrow--right.svg";
+import Layers from "@icons/layers.svg";
+import Bars from "@icons/bars.svg";
+import Globe from "@icons/globe.svg";
+import Gear from "@icons/gear.svg";
+
+const iconMap = {
+  layers: Layers,
+  bars: Bars,
+  globe: Globe,
+  gear: Gear,
+};
 console.log(coreValues);
 ---
 
-<section>
+<section class={`${color} ${width}`}>
 <div>
 <h5>Growing with our clients</h5>
 <h2>{coreValues.title}</h2>
 <p>{coreValues.subtitle}</p>
-<a href="">{coreValues.button.text}</a>
+<a href="" class="button">{coreValues.button.text}</a>
 </div>
 <ul>
  {
-    coreValues.values.map((service) => (
-      <li>
+    coreValues.values.map((service) => {
+      const Icon = iconMap[service.icon]; // Get the correct imported component
+return(
+      <li class="card">
+        <div>
+          {Icon && <Icon />}
+      </div>
  <h3>{service.title}</h3>
  <p>{service.description}</p>
- <a href="">Read More</a>
+ <a href="">Read More <RightArrow/></a>
       </li>
-    ))
+  ) } )
   }
 
 
@@ -29,7 +47,18 @@ console.log(coreValues);
 <style>
      @layer components {
         
-    
+    .light{
+background-color: var(--color-secondary-02);
+    }
+    .dark{
+      background-color: var(--color-primary-03);
+      >:first-child{
+           p, h5, h2{   color: var(--color-secondary-02);}
+      } 
+    }
+    section{
+      padding-block: 10vw;
+    }
     div{
         display: grid;
         grid-template-columns: 1fr 1fr auto;
@@ -38,16 +67,47 @@ console.log(coreValues);
         }
         a{
             grid-column: 3;
+            background-color: var(--color-secondary-02);
+            color: var(--color-primary-03);
+            align-self: center;
         }
     }
         ul{
       display: flex;
-      padding: 20px 0;
+      gap: 20px;
+      padding-block: 20px;
        li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        background-color: var(--color-secondary-01);
+        padding:36px 23px ;
+        >:first-child{
+                border-radius:var(--svg-border-radius);
+      background-color: var( --color-primary-03);
+      width: 60px;
+      height: auto;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      >*{
+        color: var(--color-secondary-02);
+      }
+        }
+        >*{
+           color: var(--color-primary-03);
+        }
+
+       
       list-style: none;
 
       a{
         text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
       }
     }
     }}
