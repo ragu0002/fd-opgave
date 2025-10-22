@@ -4,7 +4,7 @@ import experience from "@data/experience.json";
 console.log(experience);
 ---
 <section class="full-span">
-<div>
+<div class="container">
 <div>
   <h5>experience</h5>
 <h2>{experience.heading}</h2>
@@ -29,6 +29,7 @@ console.log(experience);
 section{
    background-color: var(--color-primary-01);
    padding-block: 10vh;
+   content: section/inline-size;
   >*{
     display: grid;
     grid-template-columns: auto 2fr;
@@ -94,7 +95,20 @@ section{
   offset-anchor: 50% calc(50%-var(--border-width)/2);
   }
 }
-
+   @media (width < 1100px){
+     .container{
+      display: block;
+      }
+      .stats{
+        justify-content: space-evenly;
+        padding-top: 5vw;
+      }
+    }
+   @media (width < 500px){
+    .stats{
+      display: grid;
+    }
+    }
   }
 
 
