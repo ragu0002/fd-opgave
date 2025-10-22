@@ -19,8 +19,37 @@ const { employee } = Astro.props;
 
 <Layout>
 <section>
-    <h2>{employee.name}</h2>
+    <figure>
+              <img src={employee.img} alt={employee.name}></img>
+    </figure>
+
+      <div>
+        <div>
+            <h2>{employee.name}</h2>
+            <h5>{employee.title}</h5>
+            <div>
+                
+            </div>
+            </div>
+            <p>{employee.description_long}</p>
+            <hr>
+            <h3>Past Experience</h3>
+            <p>{employee.past_experience}</p>
+      </div>
+
     
 </section>
 
 </Layout>
+
+<style>
+      @layer components {
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-block: 10vw;
+    gap: 89px;
+}
+      }
+
+</style>
