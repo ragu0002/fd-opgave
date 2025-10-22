@@ -22,11 +22,11 @@ console.log(servicesData);
     ul{
       margin-top: -4vw;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
     grid-auto-rows: 1fr;
       gap: 20px;
-
+      padding-bottom: 10vw;
      .card{
        display: grid;
   grid-template-rows: subgrid;
@@ -51,7 +51,11 @@ console.log(servicesData);
       }
   
     }
-    
+    @media (width < 800px){
+      ul{
+        grid-template-columns: 1fr;
+      }
+    }
     }
    
   

@@ -29,7 +29,8 @@ section{
         grid-template-columns: subgrid;
         grid-column: full;
         gap: 0;
-     
+        container: hero/ inline-size;
+   
       .hero-content{
         grid-column: 2 / span 1;
         display: flex;
@@ -40,6 +41,10 @@ section{
         gap: 10px;
           align-items: flex-start;
                 justify-items: flex-start;
+
+          @container hero (width < 700px){
+grid-column: 2/ span 2;
+}
         >*{  
              color: var(--color-secondary-02);
             }
@@ -49,8 +54,13 @@ section{
               
             }
       }
-      :last-child{
-        grid-column:middle/full-end ;
+      >:last-child{
+        display: flex;
+        grid-column:middle/full-end; align-self:stretch ;
+    object-fit: cover;
+@container hero (width < 700px){
+  display: none;
+}
       }
     
     }
