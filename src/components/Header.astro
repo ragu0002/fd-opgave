@@ -2,7 +2,7 @@
 //@ts-nocheck
 ---
 <section >
- <h2>AskExperts</h2>
+ <h3>AskExperts</h3>
  <ul>
     <li>
         <a href="/index.html">Home</a>
@@ -24,9 +24,10 @@
 <style>
      @layer components {
 section{
-    display: grid;
+display: grid;
  grid-template-columns: auto  1fr auto;
- margin-block: 20px;
+ margin-block: 30px;
+ align-items: center;
 >*{color: var( --color-secondary-01);}
     ul{
         display: flex;
@@ -47,7 +48,7 @@ li{
         display: flex;
         background-color: var(--color-primary-01);
         color: var(--color-primary-03);
-       
+       padding: 3px 15px;
         align-items: center;
         justify-content: center;
     }
