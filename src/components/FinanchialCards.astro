@@ -52,10 +52,12 @@ console.log(financialProjections);
      @layer components {
 section{
   padding-block: 60px;
+  container: section/ inline-size;
   >:first-child{
     display: flex;
     gap: 20vw;
     align-items: center;
+
      .arrow-box{
     display: flex;
        gap: 15px;
@@ -77,7 +79,19 @@ section{
 }
   }
   }
+    @container section (width<800px){
+      >:first-child{
+            display: grid;
+            gap: 20px;
+            .arrow-box{
+              justify-content: space-between;
+            }
+            li{
+              flex-basis: 50%;
+            }
+      }
   
+    }
 }
 
   ul {
