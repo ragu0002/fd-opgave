@@ -2,19 +2,19 @@
 //@ts-nocheck
 ---
 
-<section>
+<section class="full-span">
     <div class="subscribe">
         <div>
         <h2>Subscribe Our Newsletter</h2>
         <p>Build stronger Customer Relationships with Consultalk</p>
         </div>
         <div>
-        <input type="text">
-        <a href="">Subscribe</a>
+        <input type="text" class="button" placeholder="your mail adress">
+        <a href="" class="button">Subscribe</a>
         </div>
     </div>
-    <div>
-        <h2>AskExperts</h2>
+    <div >
+        <h3>AskExperts</h3>
         <hr>
         <p>©2025 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
     </div>
@@ -26,12 +26,64 @@
 <style>
      @layer components {
         section{
+            padding-top: 10vw;
 .subscribe{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary-03);
+    border-radius: var(--card-radius);
+    padding: 2rlh 4rlh;
+
+    >:first-child{
+        display: grid;
+        gap: 12px;
+
+    }
+     >*{
+>*{
+    color: var(--color-secondary-02);
+
 }
+     }
+        a{
+            background-color: var(--color-primary-01);
+            color:var(--color-primary-03);
+        }
+        input{
+            background-color: var(--color-secondary-02);
+                border-radius: 4px;
+        }
+        input::placeholder {
+            color: var(--color-primary-03-02);
+        }
 :last-child{
+    text-align: start;
+    display: flex;
+    gap: 10px;
+}
+}
+>:last-child{
+    display: grid;
+    grid-template-columns: subgrid;
     text-align: center;
+    padding-block: 3vw;
+    background-color: var(--color-primary-03);
+    gap: 15px;
+     
+    grid-column: full;
+    >*{
+          grid-column:content ;
+        color: var(--color-secondary-01);
+    }
+ hr{
+    width:100%;
+      color: var(--color-primary-03-02);
+ 
+ }
+ p{
+    font-size: var(--step--2);
+ }
 }
 
         }
