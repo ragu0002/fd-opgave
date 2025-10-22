@@ -47,21 +47,113 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
         {section.highlights && (
           <ul>
             {section.highlights.map((highlight) => (
-              <li>{highlight}</li>
+              <li><p>{highlight}</p></li>
             ))}
           </ul>
         )}
         {section.image && (
+          <div>
           <DynamicImage
             imagePath={section.image}
             altText={section.title}
             width={600}
             height={400}
           />
+          </div>
         )}
       </section>
     ))
   }
 </article>
 
-<style></style>
+<style>
+  @layer components {
+article{
+  display: grid;
+  gap: 1rlh;
+  >*{  grid-column: content;}
+
+}
+    header{
+      padding-block: 10vw;
+      display: grid;
+      grid-template-columns: [image-start] 1fr [section-start] minmax(0, 1069px) [section-end] 1fr [image-end];
+   
+      >:first-child{
+           grid-column: image;
+        border-radius:var(--card-radius);
+      }
+      .case-details{
+        margin-top: -50px;
+        grid-column: section;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 190px;
+          background-color:var(--color-primary-03);
+        color:var(--color-secondary-02);
+        border-radius:30px;
+        padding: 40px 50px;
+      
+        >*{
+          display: flex;
+          gap: 100px;
+
+          div{
+                   gap:10px;
+
+          }
+     
+          
+        }
+        .button{
+          background-color: var(--color-primary-01);
+          color: var(--color-primary-03);
+        }
+        dt{
+          font-weight: 600;
+        }
+        dd{
+          font-size: small;
+        }
+      }
+    }
+    section{
+      display: grid;
+      grid-template-columns:[article-start] 1fr [text-start] minmax(0, 700px) [text-end] 1fr [article-end];
+      >*{
+        grid-column: text;
+      }
+      img{
+      margin: 0 auto;
+      }
+
+        > * + * {
+    margin-top: var(--flow-space, 0.9rlh);
+  }
+  h2 + p {
+    --flow-space: 1.2rlh;
+  }
+  &:first-child{
+        --flow-space: 5rlh;
+  }
+  h3 + p{
+    --flow-space: 0.8rlh;
+    & + * {
+      --flow-space: 1rlh;
+    }
+  }
+  
+div:has(img){
+      --flow-space:1.5rlh;
+    }
+  &:has(li)>ul{
+       --flow-space:1.5rlh;
+       display: grid;
+       gap: 0.6rlh;
+       list-style:disc;
+       padding-left: 1.5rlh;
+  }
+    }
+  }
+</style>
