@@ -1,26 +1,37 @@
 ---
 //@ts-nocheck
 import empLoyees from "@data/employees.json";
+import Instagram from "@icons/instagram.svg";
+import Facebook from "@icons/facebook.svg";
+import Twitter from "@icons/twitter.svg";
+
+
 console.log(empLoyees)
 ---
 
 <section>
-    <h4>Our team</h4>
-    <h2>We champion the bold to achieve the extraordinary
-    </h2>
-    <p>Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and promotes mutual respect among all team members.
-</p>
-
-<ul>
+  <div>
+    <h5>Our team</h5>
+    <h2>We champion the bold to achieve the extraordinary</h2>
+    <p>Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and promotes mutual respect among all team members.</p>
+</div>
+    <ul>
       {
     empLoyees.slice(0, 3).map((data) => (
       <li>
         <figure>
             <img src={data.img} alt={data.name}>
-            <p>{data.title}</p>
+            <div>
+            <p class="button">{data.title}</p>
+            </div>
             </figure>
         <h2>{data.name}</h2>
         <p>{data.description}</p>
+        <div>
+          <Instagram/>
+          <Facebook/>
+          <Twitter/>
+        </div>
       </li>
     ))
   }
@@ -29,21 +40,68 @@ console.log(empLoyees)
 
 <style>
       @layer components {
+
+
+section{
+display: grid;
+grid-template-columns: subgrid;
+padding-block: 10vw;
+
+  >:first-child{
+   display: grid;
+   gap: 15px;
+    grid-column: 1/span 1;
+  }
+}
 ul{
+  grid-column: content;
   display:flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 51px;
   list-style: none;
   text-align: center;
+
+  >:first-child{
+    figure{
+      p{
+         color:var(--color-primary-03);
+         background-color: var(--color-primary-01);
+      }
+    }
+  }
+  li{
+    display: grid;
+          gap: 10px;
+
+          div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+      
+          }
+  }
   figure{
     display: grid;
+   
+
     >*{
         grid-area: 1/1;
     }
-    p{
+    div{
         display: grid;
         align-items: end;
-      text-align: end;
+ justify-content: end;
+      padding: 20px;
+    }
+    p{
+           text-align: end;
+           color:var(--color-secondary-02);
+         background-color: var(--color-primary-03);
+         padding:2px 21px;
+    }
+    img{
+      border-radius: var(--card-radius);
     }
   }
 }
