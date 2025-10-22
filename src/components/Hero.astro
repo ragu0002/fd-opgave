@@ -1,27 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import Services from "./Services.astro";
-import CEOImage from "@assets/images/ceo.png";
+const {button, heading, image} = Astro.props;
 import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
 ---
 
 <HeroBgWrapper imagePath="test.png" class="hero-bg full-span" >
 <section class="hero">
    <div class="hero-content">
-    <h1>Empowering Your Business Growth</h1>
-    <p>
-      Discover tailored strategies and expert insights to take your business to
-      the next level. Let us help you navigate challenges and achieve
-      sustainable success.
-    </p>
-    <a href="#0">Book a Meeting</a>
+    <div>
+      <h5 class="button">{button}</h5>
+    </div>
+   <h1>{heading}</h1>
   </div>
-  <Image src={CEOImage} alt="CEO" />
-
-  
 </section>
 </HeroBgWrapper>
-<Services />
+
 
 <style>
   /* Styles her */
@@ -29,13 +22,22 @@ import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
     .hero {
         display: grid;
         object-fit: cover;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 2fr 1fr;
       .hero-content{
         display: flex;
         flex-direction: column;
-        background-color: white;
-        padding: 10px;
-        margin: 20px;
+        align-items: start;
+        background-color:rgba(255, 255, 255, 0.85);
+         backdrop-filter: blur(5.5px);
+         gap: 21px;
+         border-radius: 29px;
+        padding: 48px 60px 58px 60px;
+        margin-block: 100px;
+
+            h5{
+              background-color: var(--color-primary-01);
+              padding:  0 15px;
+                }
       }
     }
   }
