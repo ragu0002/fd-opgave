@@ -33,7 +33,6 @@ console.log(financialProjections);
       </div>
     </div>
 </div>
-
 <ul >
   {
     financialProjections.values.map((service) => {
@@ -92,18 +91,9 @@ section{
        padding-inline: var(--scroll-padding);
        padding-block: 20px;
        scroll-padding-inline: var(--scroll-padding);
-  
-  >:nth-child(2){
-    background-color:var(--card-background-color-02);
-    color: var(--card-text-color-02);
-    :first-child{
-      color: var(--color-primary-01);
-    }
-  }
-  }
-  li{
-    display: flex;
-    flex-direction: column;
+    li{
+    display: grid;
+  height: auto;
   padding: var(--card-padding);
 background-color:var(--card-background-color-01);
   flex-basis: 33%;
@@ -113,5 +103,16 @@ background-color:var(--card-background-color-01);
   >*{
   color: var(--card-text-color);
   }
-  }}
+  }
+  >:nth-child(2){
+    background-color:var(--card-background-color-02);
+    color: var(--card-text-color-02);
+    :first-child{
+      color: var(--color-primary-01);
+    }
+  }
+  }
+
+}
+
 </style>

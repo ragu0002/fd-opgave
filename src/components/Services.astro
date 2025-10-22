@@ -21,31 +21,38 @@ console.log(servicesData);
   @layer components {
     ul{
       margin-top: -4vw;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(3, auto);
+    grid-auto-rows: 1fr;
       gap: 20px;
 
-       li {
-      list-style: none;
-      
+     .card{
+       display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  height: 100%;
+        list-style: none;
+        padding: var(--card-padding);
+        border: var(--card-border) var(--color-primary-03);
+        background-color: rgba(38, 38, 38, 0.90);
+        align-items: flex-start;
+         backdrop-filter: blur(16px);
+           >*{
+               color: var(--color-secondary-01);
 
+             }
+      }
+  
       a{
         text-decoration: none;
          background-color:var(--color-primary-03) ;
+           justify-self: start;
       }
   
     }
-     .card{
-         padding: var(--card-padding);
-  border: var(--card-border) var(--color-primary-03);
-  background-color: rgba(38, 38, 38, 0.90);
-;
- backdrop-filter: blur(16px);
- >*{
- color: var(--color-secondary-01);
-
- }
-      }
+    
     }
    
-  }
+  
 </style>

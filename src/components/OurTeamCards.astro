@@ -1,16 +1,17 @@
 ---
 //@ts-nocheck
 import empLoyees from "@data/employees.json";
+import Instagram from "@icons/instagram.svg";
+import Facebook from "@icons/facebook.svg";
+import Twitter from "@icons/twitter.svg";
 console.log(empLoyees)
 ---
 
 <section>
     <div>
-        <div>
     <h2>Meet Our Great Team</h2>
     <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
-</div>
-    <a href="">Join our team</a>
+    <a href="" class="button">Join our team</a>
     </div>
 <ul>
       {
@@ -19,10 +20,16 @@ console.log(empLoyees)
         <a href=`/teamMember/${data.slug}`>
         <figure>
             <img src={data.img} alt={data.name}>
-            <p>{data.title}</p>
+              <div>
+                <p class="button">{data.title}</p></div>
             </figure>
         <h2>{data.name}</h2>
         <p>{data.description}</p>
+          <div>
+          <Instagram/>
+          <Facebook/>
+          <Twitter/>
+        </div>
         </a>
       </li>
     ))
@@ -34,14 +41,29 @@ console.log(empLoyees)
       @layer components {
         
         section{
-            >*{
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-
-                a{
+          padding-block: 8vw;
+          a{
+            text-decoration: none;
+          }
+            >div{
                     display: grid;
-                    align-items: end;
-                    text-align: end;
+        grid-template-columns: 1fr 1fr auto;
+        padding-bottom:43px;
+            > * + * {
+    margin-top: var(--flow-space, 0.9rlh);
+  }
+    h2 + p {
+    --flow-space: 0.8rlh;
+  }
+        h2, p{
+            grid-column: 1;
+        }
+
+       a{
+                  grid-column: 3;
+            background-color: var(--color-primary-03);
+            color: var(--color-secondary-01);
+            align-self: end;
                 }
             }
         }
@@ -50,18 +72,62 @@ console.log(empLoyees)
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: auto;
-    gap: 20px;
+     justify-content: space-between;
+     gap: 51px;
   list-style: none;
   text-align: center;
-  figure{
+
+   >:first-child{
+    figure{
+      p{
+         color:var(--color-primary-03);
+         background-color: var(--color-primary-01);
+      }
+      
+    }
+  }
+ li{
+  display: grid;
+  grid-template-rows: subgrid;
+     grid-row: span 4;
+ }
+    a{
+         display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+          gap: 10px;
+
+          div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+      color:var(--color-primary-03);
+          }
+    }
+ 
+  
+ figure{
     display: grid;
+   
+
     >*{
         grid-area: 1/1;
     }
-    p{
+    div{
         display: grid;
         align-items: end;
-      text-align: end;
+ justify-content: end;
+      padding: 20px;
+    }
+    p{
+           text-align: end;
+           color:var(--color-secondary-02);
+         background-color: var(--color-primary-03);
+         padding:2px 21px;
+    }
+    img{
+      border-radius: var(--card-radius);
     }
   }
 }

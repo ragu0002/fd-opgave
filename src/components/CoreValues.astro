@@ -34,7 +34,7 @@ return(
           {Icon && <Icon />}
       </div>
  <h3>{service.title}</h3>
- <p>{service.description}</p>
+  <p>{service.description}</p>
  <a href="">Read More <RightArrow/></a>
       </li>
   ) } )
@@ -81,13 +81,14 @@ li{
         }
     }
         ul{
-      display: flex;
-      gap: 20px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 20px;
       padding-block: 20px;
        li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        display: grid;
+  grid-template-rows: auto auto 1fr auto; 
+
         gap: 20px;
         padding:36px 23px ;
         background-color: var(--color-secondary-01);
@@ -117,6 +118,7 @@ li{
         flex-direction: row;
         gap: 5px;
       }
+      
     }
     }}
 </style>
