@@ -105,12 +105,13 @@ section{
        padding-inline: var(--scroll-padding);
        padding-block: 20px;
        scroll-padding-inline: var(--scroll-padding);
+       align-items: flex-start;
     li{
     display: grid;
   height: auto;
   padding: var(--card-padding);
 background-color:var(--card-background-color-01);
-  flex-basis: 33%;
+  flex-basis: min(400px);
   flex-shrink: 0;
      scroll-snap-align: start;
   scroll-snap-stop: always;

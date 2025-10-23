@@ -14,7 +14,6 @@ const iconMap = {
   globe: Globe,
   gear: Gear,
 };
-console.log(coreValues);
 ---
 
 <section class={`${color} ${width}`}>
@@ -120,5 +119,16 @@ li{
       }
       
     }
-    }}
+    }
+    @media (width<800px){
+      div{
+        display: flex;
+        flex-direction: column;
+       a{
+        align-self: flex-start;
+        margin-top: 10px;;
+       }
+      }
+    }
+    }
 </style>

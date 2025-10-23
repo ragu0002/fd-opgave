@@ -5,8 +5,6 @@ import Instagram from "@icons/instagram.svg";
 import Facebook from "@icons/facebook.svg";
 import Twitter from "@icons/twitter.svg";
 import DynamicImage from "@components/helpers/DynamicImage.astro"
-
-console.log(empLoyees)
 ---
 
 <section>
@@ -20,7 +18,7 @@ console.log(empLoyees)
     empLoyees.slice(0, 3).map((data) => (
       <li>
         <figure>
-                  <DynamicImage
+              <DynamicImage
     imagePath={data.img}
     altText={data.name}
     width={650}
