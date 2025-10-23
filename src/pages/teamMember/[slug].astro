@@ -17,7 +17,7 @@ const { employee } = Astro.props;
 
 ---
 
-<Layout>
+<Layout name={employee.name}>
 <section>
     <figure>
               <img src={employee.img} alt={employee.name}></img>
