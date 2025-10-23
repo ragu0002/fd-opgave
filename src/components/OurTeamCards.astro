@@ -72,7 +72,18 @@ import Twitter from "@icons/twitter.svg";
                 }
             }
         }
-        
+        @media (width<800px){
+          section{
+            >div{
+              display: flex;
+              flex-direction: column;
+
+              a{
+                align-self:start;
+              }
+            }
+          }
+        }
         ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
