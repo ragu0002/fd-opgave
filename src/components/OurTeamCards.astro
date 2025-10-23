@@ -1,10 +1,10 @@
 ---
 //@ts-nocheck
 import empLoyees from "@data/employees.json";
+import DynamicImage from "@components/helpers/DynamicImage.astro"
 import Instagram from "@icons/instagram.svg";
 import Facebook from "@icons/facebook.svg";
 import Twitter from "@icons/twitter.svg";
-console.log(empLoyees)
 ---
 
 <section>
@@ -19,8 +19,13 @@ console.log(empLoyees)
       <li>
         <a href=`/teamMember/${data.slug}`>
         <figure>
-            <img src={data.img} alt={data.name}>
-              <div>
+            <DynamicImage
+    imagePath={data.img}
+    altText={data.name}
+    width={650}
+    height={650}
+  />
+            <div>
                 <p class="button">{data.title}</p></div>
             </figure>
         <h2>{data.name}</h2>

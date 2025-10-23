@@ -4,7 +4,7 @@ import empLoyees from "@data/employees.json";
 import Instagram from "@icons/instagram.svg";
 import Facebook from "@icons/facebook.svg";
 import Twitter from "@icons/twitter.svg";
-
+import DynamicImage from "@components/helpers/DynamicImage.astro"
 
 console.log(empLoyees)
 ---
@@ -20,7 +20,12 @@ console.log(empLoyees)
     empLoyees.slice(0, 3).map((data) => (
       <li>
         <figure>
-            <img src={data.img} alt={data.name}>
+                  <DynamicImage
+    imagePath={data.img}
+    altText={data.name}
+    width={650}
+    height={650}
+  />
             <div>
             <p class="button">{data.title}</p>
             </div>

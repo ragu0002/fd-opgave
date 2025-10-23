@@ -1,16 +1,19 @@
 ---
 import { Image } from "astro:assets";
-const {button, heading, image} = Astro.props;
+const {button, heading, image = "test.png"} = Astro.props;
 import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
+console.log(image)
 ---
 
-<HeroBgWrapper imagePath="test.png" class="hero-bg full-span" >
-<section class="hero">
+<HeroBgWrapper imagePath={image} class="hero-bg" >
+<section >
+  <div class="hero">
    <div class="hero-content">
     <div>
       <h5 class="button">{button}</h5>
     </div>
    <h1>{heading}</h1>
+  </div>
   </div>
 </section>
 </HeroBgWrapper>
@@ -19,10 +22,19 @@ import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
 <style>
   /* Styles her */
   @layer components {
+
+    section{
+      display: grid;
+      grid-template-columns: subgrid;
+      background-size: cover;
+      grid-column: 1/-1;
+        background-position: 50% 50%;}
     .hero {
         display: grid;
         object-fit: cover;
+        grid-column: content;
         grid-template-columns: 2fr 1fr;
+       
       .hero-content{
         display: flex;
         flex-direction: column;
@@ -38,6 +50,11 @@ import HeroBgWrapper from "./helpers/HeroBgWrapper.astro";
               background-color: var(--color-primary-01);
               padding:  0 15px;
                 }
+      }
+    }
+    @media (width< 800px){
+      .hero{
+        display: block;
       }
     }
   }

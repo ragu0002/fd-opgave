@@ -19,10 +19,19 @@ const optimizedBackground = await getImage({
 });
 ---
 
-<section
-  style={`background-image: url(${optimizedBackground.src});`}
+<div
+  style={`--image: url(${optimizedBackground.src});`}
   class={className}
 >
   <slot />
-</section>
+</div>
 
+<style>
+  div {
+    display: contents;
+
+    > * {
+      background-image: var(--image);
+    }
+  }
+</style>
