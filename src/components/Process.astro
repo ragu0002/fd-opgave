@@ -178,7 +178,18 @@ ul{
     justify-items: center;
   }
 }
-  
+  @media (width<900px){
+    section{
+      display: block;
+      >*{
+        display: grid;
+        gap: 20px;
+        >*{
+          gap: 10px;
+        }
+      }
+    }
+  }
 
   }
 </style>
